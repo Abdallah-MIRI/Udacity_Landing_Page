@@ -35,6 +35,12 @@ navList.addEventListener('click', e => {
 
 })
 
+// Reset Active Links
+const resetActiveLinks = () => {
+	const activeLinks = document.querySelectorAll('.menu__item.active')
+	activeLinks.forEach(link => link.classList.remove('active'))
+}
+
 // Set an active class to the Section
 const callback = items => {
 
@@ -43,7 +49,7 @@ const callback = items => {
     const section = document.getElementById(item.target.id);
 
     if (item && item.isIntersecting) {
-      
+      resetActiveLinks();
       navListElement.classList.add('active');
       section.classList.add('active');
     
